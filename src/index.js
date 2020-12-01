@@ -18,8 +18,8 @@ app.get("/",(req,res)=>{
 const mod=10000000
 const negMod=-10000000
 app.post("/add",(req,res)=>{
-    const num1=Number(req.params.num1);
-    const num2=Number(req.params.num2);
+    const num1=Number(req.body.num1);
+    const num2=Number(req.body.num2);
     if(num1<negMod || num2<negMod){
         res.send("Underflow");
     }else if(num1>mod || num2>mod){
@@ -31,9 +31,9 @@ app.post("/add",(req,res)=>{
     }
 });
 
-app.post("/sub/:num1/:num2",(req,res)=>{
-    const num1=Number(req.params.num1);
-    const num2=Number(req.params.num2);
+app.post("/sub",(req,res)=>{
+    const num1=Number(req.body.num1);
+    const num2=Number(req.body.num2);
     if(num1<negMod || num2<negMod){
         res.send("Underflow");
     }else if(num1>mod || num2>mod){
@@ -46,8 +46,8 @@ app.post("/sub/:num1/:num2",(req,res)=>{
 });
 
 app.post("/multiply/:num1/:num2",(req,res)=>{
-    const num1=Number(req.params.num1);
-    const num2=Number(req.params.num2);
+    const num1=Number(req.body.num1);
+    const num2=Number(req.body.num2);
     if(num1<negMod || num2<negMod){
         res.send("Underflow");
     }else if(num1>mod || num2>mod){
@@ -60,8 +60,8 @@ app.post("/multiply/:num1/:num2",(req,res)=>{
 });
 
 app.post("/divide/:num1/:num2",(req,res)=>{
-    const num1=Number(req.params.num1);
-    const num2=Number(req.params.num2);
+    const num1=Number(req.body.num1);
+    const num2=Number(req.body.num2);
     if(num1<negMod || num2<negMod){
         res.send("Underflow");
     }else if(num1>mod || num2>mod){
