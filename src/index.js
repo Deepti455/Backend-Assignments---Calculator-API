@@ -17,7 +17,7 @@ app.get("/",(req,res)=>{
 })
 const mod=10000000
 const negMod=-10000000
-app.get("/add/:num1/:num2",(req,res)=>{
+app.post("/add/:num1/:num2",(req,res)=>{
     const num1=Number(req.params.num1);
     const num2=Number(req.params.num2);
     if(num1<negMod || num2<negMod){
