@@ -27,7 +27,7 @@ app.post("/add/:num1/:num2",(req,res)=>{
     }else if(isNaN(num1) || isNaN(num2)){
         res.send("Invalid data types");
     }else{
-        res.status(200).send(`the sum of given two numbers, sum: ${num1+num2}`);
+        res.status("success").send(`the sum of given two numbers, sum: ${num1+num2}`);
     }
 });
 
