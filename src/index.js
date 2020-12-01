@@ -27,7 +27,7 @@ app.post("/add",(req,res)=>{
     }else if(isNaN(num1) || isNaN(num2)){
         res.send("Invalid data types");
     }else{
-        res.status("success").send(`the sum of given two numbers, sum: ${num1+num2}`);
+        res.status(200).send(`the sum of given two numbers, sum: ${num1+num2}`);
     }
 });
 
@@ -45,7 +45,7 @@ app.post("/sub",(req,res)=>{
     }
 });
 
-app.post("/multiply/:num1/:num2",(req,res)=>{
+app.post("/multiply",(req,res)=>{
     const num1=Number(req.body.num1);
     const num2=Number(req.body.num2);
     if(num1<negMod || num2<negMod){
@@ -59,7 +59,7 @@ app.post("/multiply/:num1/:num2",(req,res)=>{
     }
 });
 
-app.post("/divide/:num1/:num2",(req,res)=>{
+app.post("/divide",(req,res)=>{
     const num1=Number(req.body.num1);
     const num2=Number(req.body.num2);
     if(num1<negMod || num2<negMod){
