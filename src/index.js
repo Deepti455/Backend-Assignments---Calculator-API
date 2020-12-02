@@ -46,8 +46,8 @@ app.post("/add",(req,res)=>{
 });
 
 app.post("/sub",(req,res)=>{
-    const num1=Number(req.body.num1);
-    const num2=Number(req.body.num2);
+    const num1=req.body.num1;
+    const num2=req.body.num2;
     if(typeof(num1)!="number" || typeof(num2)!="number"){
         res.send({
             status: 'error',
@@ -74,8 +74,8 @@ app.post("/sub",(req,res)=>{
 });
 
 app.post("/multiply",(req,res)=>{
-    const num1=Number(req.body.num1);
-    const num2=Number(req.body.num2);
+    const num1=req.body.num1;
+    const num2=req.body.num2;
     if(typeof(num1)!="number" || typeof(num2)!="number"){
         res.send({
             status: 'error',
@@ -102,8 +102,8 @@ app.post("/multiply",(req,res)=>{
 });
 
 app.post("/divide",(req,res)=>{
-    const num1=Number(req.body.num1);
-    const num2=Number(req.body.num2);
+    const num1=req.body.num1;
+    const num2=req.body.num2;
     if(typeof(num1)!="number" || typeof(num2)!="number"){
         res.send({
             status: 'error',
