@@ -15,17 +15,17 @@ app.use(bodyParser.json())
 app.get("/",(req,res)=>{
     res.send("hello world!");
 })
-const mod=10000000
-const negMod=-10000000
+const mod=10000000;
+const negMod=-10000000;
 app.post("/add",(req,res)=>{
     const num1=Number(req.body.num1);
     const num2=Number(req.body.num2);
     if(num1<negMod || num2<negMod){
-        res.send("Underflow");
+        res.status(406).send("Underflow");
     }else if(num1>mod || num2>mod){
-        res.send("Overflow");
+        res.status(406).send("Overflow");
     }else if(isNaN(num1) || isNaN(num2)){
-        res.send("Invalid data types");
+        res.status(406).send("Invalid data types");
     }else{
         res.status(200).send(`the sum of given two numbers, sum: ${num1+num2}`);
     }
@@ -35,11 +35,11 @@ app.post("/sub",(req,res)=>{
     const num1=Number(req.body.num1);
     const num2=Number(req.body.num2);
     if(num1<negMod || num2<negMod){
-        res.send("Underflow");
+        res.status(406).send("Underflow");
     }else if(num1>mod || num2>mod){
-        res.send("Overflow");
+        res.status(406).send("Overflow");
     }else if(isNaN(num1) || isNaN(num2)){
-        res.send("Invalid data types");
+        res.status(406).send("Invalid data types");
     }else{
     res.status(200).send(`the difference of given two numbers, sum: ${num1-num2}`);
     }
@@ -49,11 +49,11 @@ app.post("/multiply",(req,res)=>{
     const num1=Number(req.body.num1);
     const num2=Number(req.body.num2);
     if(num1<negMod || num2<negMod){
-        res.send("Underflow");
+        res.status(406).send("Underflow");
     }else if(num1>mod || num2>mod){
-        res.send("Overflow");
+        res.status(406).send("Overflow");
     }else if(isNaN(num1) || isNaN(num2)){
-        res.send("Invalid data types");
+        res.status(406).send("Invalid data types");
     }else{
     res.status(200).send(`the product of given numbers, sum: ${num1*num2}`);
     }
@@ -63,11 +63,11 @@ app.post("/divide",(req,res)=>{
     const num1=Number(req.body.num1);
     const num2=Number(req.body.num2);
     if(num1<negMod || num2<negMod){
-        res.send("Underflow");
+        res.status(406).send("Underflow");
     }else if(num1>mod || num2>mod){
-        res.send("Overflow");
+        res.status(406).send("Overflow");
     }else if(isNaN(num1) || isNaN(num2)){
-        res.send("Invalid data types");
+        res.status(406).send("Invalid data types");
     }else if(num2==0){
         res.status(406).send("Cannot divide by zero");
     }else{
