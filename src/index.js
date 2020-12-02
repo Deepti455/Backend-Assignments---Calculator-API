@@ -18,61 +18,119 @@ app.get("/",(req,res)=>{
 const mod=10000000;
 const negMod=-10000000;
 app.post("/add",(req,res)=>{
-    const num1=Number(req.body.num1);
-    const num2=Number(req.body.num2);
-    if(num1<negMod || num2<negMod){
-        res.status(406).send("Underflow");
-    }else if(num1>mod || num2>mod){
-        res.status(406).send("Overflow");
-    }else if(isNaN(num1) || isNaN(num2)){
-        res.status(406).send("Invalid data types");
+    const num1=req.body.num1;
+    const num2=req.body.num2;
+    if(typeof(num1)!="number" || typeof(num2)!="number"){
+        res.send({
+            status: 'error',
+            message: "Invalid data types"});
     }else{
-        res.status(200).send(`the sum of given two numbers, sum: ${num1+num2}`);
+        const sum=num1+num2;
+        if(sum>mod || num1>mod || num2>mod){
+            res.send({
+                status: 'error',
+                message: "Overflow",
+            }); 
+        }else if(sum<negMod || num1<negMod || num2<negMod){
+            res.send({
+                status: 'error',
+                message: "Underflow"
+            });
+        }else{
+            res.status(200).send({
+            message: "the sum of given two numbers",
+            sum: sum
+        });
     }
+}
 });
 
 app.post("/sub",(req,res)=>{
     const num1=Number(req.body.num1);
     const num2=Number(req.body.num2);
-    if(num1<negMod || num2<negMod){
-        res.status(406).send("Underflow");
-    }else if(num1>mod || num2>mod){
-        res.status(406).send("Overflow");
-    }else if(isNaN(num1) || isNaN(num2)){
-        res.status(406).send("Invalid data types");
+    if(typeof(num1)!="number" || typeof(num2)!="number"){
+        res.send({
+            status: 'error',
+            message: "Invalid data types"});
     }else{
-    res.status(200).send(`the difference of given two numbers, sum: ${num1-num2}`);
+        const sub=num1-num2;
+        if(sub>mod || num1>mod || num2>mod){
+            res.send({
+                status: 'error',
+                message: "Overflow",
+            }); 
+        }else if(sub<negMod || num1<negMod || num2<negMod){
+            res.send({
+                status: 'error',
+                message: "Underflow"
+            });
+        }else{
+            res.status(200).send({
+            message: "the difference of given two numbers",
+            difference: sub
+        });
     }
+}
 });
 
 app.post("/multiply",(req,res)=>{
     const num1=Number(req.body.num1);
     const num2=Number(req.body.num2);
-    if(num1<negMod || num2<negMod){
-        res.status(406).send("Underflow");
-    }else if(num1>mod || num2>mod){
-        res.status(406).send("Overflow");
-    }else if(isNaN(num1) || isNaN(num2)){
-        res.status(406).send("Invalid data types");
+    if(typeof(num1)!="number" || typeof(num2)!="number"){
+        res.send({
+            status: 'error',
+            message: "Invalid data types"});
     }else{
-    res.status(200).send(`the product of given numbers, sum: ${num1*num2}`);
+        const mul=num1*num2;
+        if(mul>mod || num1>mod || num2>mod){
+            res.send({
+                status: 'error',
+                message: "Overflow",
+            }); 
+        }else if(mul<negMod || num1<negMod || num2<negMod){
+            res.send({
+                status: 'error',
+                message: "Underflow"
+            });
+        }else{
+            res.status(200).send({
+            message: "The product of given numbers",
+            result: mul
+        });
     }
+}
 });
 
 app.post("/divide",(req,res)=>{
     const num1=Number(req.body.num1);
     const num2=Number(req.body.num2);
-    if(num1<negMod || num2<negMod){
-        res.status(406).send("Underflow");
-    }else if(num1>mod || num2>mod){
-        res.status(406).send("Overflow");
-    }else if(isNaN(num1) || isNaN(num2)){
-        res.status(406).send("Invalid data types");
+    if(typeof(num1)!="number" || typeof(num2)!="number"){
+        res.send({
+            status: 'error',
+            message: "Invalid data types"});
     }else if(num2==0){
-        res.status(406).send("Cannot divide by zero");
+        res.send({
+            status: 'error',
+            message: "Cannot divide by zero"});
     }else{
-        res.status(200).send(`the division of given numbers, sum: ${num1/num2}`);
+        const div=num1/num2;
+        if(div>mod || num1>mod || num2>mod){
+            res.send({
+                status: 'error',
+                message: "Overflow",
+            }); 
+        }else if(div<negMod || num1<negMod || num2<negMod){
+            res.send({
+                status: 'error',
+                message: "Underflow"
+            });
+        }else{
+            res.status(200).send({
+            message: "The division of given numbers",
+            result: div
+        });
     }
+}
 });
 
 
