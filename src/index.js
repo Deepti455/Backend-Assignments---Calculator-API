@@ -15,8 +15,8 @@ app.use(bodyParser.json())
 app.get("/",(req,res)=>{
     res.send("hello world!");
 })
-const mod=10000000;
-const negMod=-10000000;
+const mod=1000000;
+const negMod=-1000000;
 app.post("/add",(req,res)=>{
     const num1=req.body.num1;
     const num2=req.body.num2;
